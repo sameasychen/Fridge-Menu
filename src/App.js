@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import IngredientPick from './Component/IngredientPick';
+import TodayMenu from './Component/TodayMenu';
+import MenuDetail from './Component/MenuDetail';
+
+
+import menus from './FoodData.json';
+
+
+
+
+class App extends Component {
+
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+      TodayMenu: [],
+
+    }
+
+
+  }
+
+  updateMenus = () => {
+
+    let loadDish = new Promise((resolve, reject) => (
+      setTimeout(() => (
+        resolve("success")
+      ))
+    ))
+
+    loadDish.then(
+
+      this.setState(() => ({
+        TodayMenu: menus
+      }))
+
+    )
+
+  }
+
+
+
+  render() {
+
+    return (
+      <div className="App">
+
+        <Route exact path='/' render={() => (
+          <div className="row">
+            <IngredientPick updateMenus={this.updateMenus} />
+            <TodayMenu menus={this.state.TodayMenu} />
+          </div>
+        )} />
+
+
+        <Switch>
+          <Route path="/MenuDetail/:foodID" children={<MenuDetail menus={this.state.TodayMenu}/>} />
+        </Switch>
+
+      </div >
+    );
+  }
 }
 
 export default App;

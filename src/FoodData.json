@@ -1,0 +1,230 @@
+[
+    {
+        "foodID": "000",
+        "properties": {
+            "foodPic": "https://thewoksoflife.com/wp-content/uploads/2019/04/kung-pao-chicken-11-500x500.jpg",
+            "foodName": "Kong Pao Chicken",
+            "Category": "Chicken",
+            "foodPrice": 12.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "001",
+        "properties": {
+            "foodPic": "https://healthynibblesandbits.com/wp-content/uploads/2019/10/Vegetarian-Mapo-Tofu-FF.jpg",
+            "foodName": "Mapo Tofu",
+            "Category": "Vegies",
+            "foodPrice": 10.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"1",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "002",
+        "properties": {
+            "foodPic": "https://www.thecountrycook.net/wp-content/uploads/2012/10/Easy-Homemade-Fried-Rice.jpg",
+            "foodName": "Fried Rice",
+            "Category": "Rice",
+            "foodPrice": 8.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"3",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "003",
+        "properties": {
+            "foodPic": "https://www.cool-simple.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/b/lb020_general_tao_web.jpg",
+            "foodName": "General Tao Chicken",
+            "Category": "Chicken",
+            "foodPrice": 12.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"3",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "004",
+        "properties": {
+            "foodPic": "https://rasamalaysia.com/wp-content/uploads/2019/04/spring-rolls-thumb-new.jpg",
+            "foodName": "Spring Roll",
+            "Category": "Appetizers",
+            "foodPrice": 8.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "005",
+        "properties": {
+            "foodPic": "https://www.averiecooks.com/wp-content/uploads/2015/03/broccolistirfry-15-720x720.jpg",
+            "foodName": "Stir Fry Vegies",
+            "Category": "Vegies",
+            "foodPrice": 7.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "006",
+        "properties": {
+            "foodPic": "https://di-cdn.sfo2.digitaloceanspaces.com/cdn/533_acf9f641202e3eabbe887a1a4b990ae1.jpg",
+            "foodName": "Soft Drink",
+            "Category": "Drink",
+            "foodPrice": 1.50
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "007",
+        "properties": {
+            "foodPic": "https://kirbiecravings.com/wp-content/uploads/2019/02/wonton-soup-8-700x648.jpg",
+            "foodName": "Wonton Soup",
+            "Category": "Soups",
+            "foodPrice": 5.50
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "008",
+        "properties": {
+            "foodPic": "https://drivemehungry.com/wp-content/uploads/2020/07/hot-and-sour-soup-12.jpg",
+            "foodName": "Hot & Sour Soup",
+            "Category": "Soups",
+            "foodPrice": 5.50
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "009",
+        "properties": {
+            "foodPic": "https://www.newyorkbeverage.com/wp-content/uploads/2020/07/ariz11ozacn.png",
+            "foodName": "Green Tea",
+            "Category": "Drink",
+            "foodPrice": 1.50
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "010",
+        "properties": {
+            "foodPic": "https://cdn.shopify.com/s/files/1/1127/6786/products/Spicy_chicken_with_Chinese_wine_2048x2048.JPG?v=1527182612",
+            "foodName": "Fried Chicken",
+            "Category": "Chicken",
+            "foodPrice": 13.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    },
+    {
+        "foodID": "011",
+        "properties": {
+            "foodPic": "https://www.thespruceeats.com/thmb/9ZSh4xEoU9bEHPvemIxUx6TTUoY=/2576x2576/smart/filters:no_upscale()/sesame-chicken-with-broccoli-on-square-plate-on-red-table-182503801-58853d785f9b58bdb38a6159.jpg",
+            "foodName": "Sesame Chicken",
+            "Category": "Chicken",
+            "foodPrice": 11.99
+        },
+        "ingredients": "1 cup oats, 2tsp baking powder, 2 cups raspberries",
+        "ingredientsMissing":"2",
+        "cookInstructions": [
+
+            "Heat your waffle iron.",
+            "Blend the oats, quark, eggs, sugar, and water.",
+            "Ladle the batter into the waffle iron."
+            
+
+        ]
+    }
+]
