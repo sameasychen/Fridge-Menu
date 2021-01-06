@@ -20,7 +20,7 @@ class App extends Component {
 
     this.state = {
       TodayMenu: [],
-      TodayMenuDetail: [],
+      tempMenu: [],
 
 
     }
@@ -29,13 +29,11 @@ class App extends Component {
   }
 
 
-
-
-
-
   updateMenuDetail = (idList) => {
 
-    const menusList = [];
+   
+    const menusList = this.state.tempMenu.slice(0);
+
 
     for (let i = 0; i < idList.length; i++) {
       // console.log(idList[i]);
@@ -44,8 +42,7 @@ class App extends Component {
         method: 'get',
         url: `https://api.spoonacular.com//recipes/${idList[i]}/information`,
         params: {
-          apiKey: 'd53cbd9911a44ad5a7ed8cf9e4b6c420',
-          // id: idList[0],
+          apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
           includeNutrition: false
         }
 
@@ -54,23 +51,35 @@ class App extends Component {
 
           (res) => {
 
+            // let menuDetail ='theDetail';
 
-            // console.log(res.data);
-            menusList.push(res.data)
-            // this.setState(() => ({
-            //   TodayMenu: res.data
-            // }))
+            menusList[i].menuDetail = res.data;
+
+
+            // menusList[i].menuDetail = [];
+            
+            // menusList[i].menuDetail.push(res.data);
+
+
+            // if (res.data.anlyzedInstructions.length !== 0) {
+            //   menusList.push(res.data)
+            // }
+
+            // if (res.data.anlyzedInstructions[0].steps) {
+            //   menusList.push(res.data)
+            // }
+
+            // continue
           })
 
     }
 
-    console.log(menusList);
+    // console.log(menusList);
 
     this.setState(() => ({
-      TodayMenuDetail: menusList
+      TodayMenu: menusList
     }));
 
-    console.log(this.state.TodayMenuDetail);
 
   }
 
@@ -80,9 +89,9 @@ class App extends Component {
       method: 'get',
       url: 'https://api.spoonacular.com/recipes/findByIngredients',
       params: {
-        apiKey: 'd53cbd9911a44ad5a7ed8cf9e4b6c420',
+        apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
         ingredients: 'bacon, butter, cheese',
-        number: 10,
+        number: 2,
         limitLicense: true,
         ranking: 3,
         ignorePantry: true
@@ -92,9 +101,13 @@ class App extends Component {
       .then(
 
         (res) => {
-          // console.log(res);
+
+          // let parseText = JSON.parse(res)
+
+          // console.log(parseText)
+
           this.setState(() => ({
-            TodayMenu: res.data
+            tempMenu: res.data
           }));
 
           let idList = res.data.map(data =>
@@ -102,7 +115,6 @@ class App extends Component {
 
           );
 
-          // console.log(idList);
           this.updateMenuDetail(idList)
 
         })
@@ -112,7 +124,6 @@ class App extends Component {
 
       }
       )
-
 
     // let loadDish = new Promise((resolve, reject) => (
     //   setTimeout(() => (
@@ -130,11 +141,12 @@ class App extends Component {
 
   }
 
-
-
   render() {
 
-    // console.log(this.state.TodayMenu);
+    console.log(this.state.TodayMenu);
+    console.log(this.state.tempMenu);
+
+    
 
     return (
       <div className="App">
@@ -142,13 +154,13 @@ class App extends Component {
         <Route exact path='/' render={() => (
           <div className="row">
             <IngredientPick updateMenus={this.updateMenus} />
-            <TodayMenu menus={this.state.TodayMenu} />
+            <TodayMenu menus={this.state.TodayMenu}/>
           </div>
         )} />
 
 
         <Switch>
-          <Route path="/MenuDetail/:menuId" children={<MenuDetail menus={this.state.TodayMenuDetail} />} />
+          <Route path="/MenuDetail/:menuId" children={<MenuDetail menus={this.state.TodayMenu} />} />
         </Switch>
 
       </div >
