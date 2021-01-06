@@ -14,14 +14,14 @@ const TodayMenu = props => {
       <ul>
 
         {props.menus.map(data =>
-          <li key={data.foodID} className="border">
-            <Link className="" to={`/MenuDetail/${data.foodID}`}>
-              {data.properties.foodName}
+          <li key={data.id} className="border">
+            <Link className="" to={`/MenuDetail/${data.id}`}>
+              {data.title}
             </Link>
-            <p>FoodID: {data.foodID}</p>
+            <p>FoodID: {data.id}</p>
 
-            <p>Category: {data.properties.Category}</p>
-            <p>Ingredients Missing : {data.ingredientsMissing}</p>
+            {/* <p>Category: {data.title}</p> */}
+            <p>Number of Missed Ingredients: {data.missedIngredientCount}</p>
 
           </li>
 

@@ -7,9 +7,12 @@ import { Link } from 'react-router-dom'
 const MenuDetail = props => {
 
 
-  let { foodID } = useParams();
+  let { menuId } = useParams();
+  let numberId = parseInt(menuId);
 
-  console.log(props)
+  // console.log(menuId)
+
+  // console.log(props.menus)
 
 
   if (props.menus.length === 0) {
@@ -27,9 +30,11 @@ const MenuDetail = props => {
 
   }
   else {
-    const theMenu = props.menus.filter(data =>
-      data.foodID === foodID
-    )
+    const theMenu = props.menus.filter((data) => {
+
+      return data.id === numberId
+
+    })
     console.log(theMenu)
 
     return (
@@ -40,21 +45,24 @@ const MenuDetail = props => {
           Home Page
         </Link>
 
-        <div key={theMenu[0].foodID}>
+        <div >
 
           <p
             className="text-left font-weight-bold"
-          >ID: {foodID}   Menu Name: {theMenu[0].properties.foodName} </p>
+          >ID: {menuId}   Menu Name: {theMenu[0].title} </p>
+
+          <p>Summary: {theMenu[0].summary}</p>
+          <p>readyInMinutes: {theMenu[0].readyInMinutes}</p>
 
 
-
-          <p
+          
+          {/* <p
           >Ingredients: {theMenu[0].ingredients}</p>
 
           <p>CookInstructions: {theMenu[0].cookInstructions[0]}</p>
           <p>Step 1:{theMenu[0].cookInstructions[0]}</p>
           <p>Step 2:{theMenu[0].cookInstructions[1]}</p>
-          <p>Step 3:{theMenu[0].cookInstructions[2]}</p>
+          <p>Step 3:{theMenu[0].cookInstructions[2]}</p> */}
 
 
 
