@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import AutoComplete from './AutoComplete';
+
+const axios = require('axios').default;
 
 
 class IngredientPick extends Component {
@@ -8,9 +11,12 @@ class IngredientPick extends Component {
     super(props);
 
     this.state = {
-      ingredient1: "",
-      ingredient2: "",
-      ingredient3: "",
+      // inputIngredient: "",
+      allIngredients: [],
+      allIngredientsStr: "",
+
+      // ingredient2: "",
+      // ingredient3: "",
 
     }
 
@@ -19,10 +25,46 @@ class IngredientPick extends Component {
 
   }
 
-  updateMenu(event) {
-    event.preventDefault();
-    this.props.updateMenus();
-    console.log("what a day");
+  addIngredient = (inputIngredient) => {
+
+    let tempArray = this.state.allIngredients.slice(0);;
+
+    tempArray.push(inputIngredient);
+
+    this.setState(() => ({
+      allIngredients: tempArray
+    }));
+
+
+    let tempStr = this.state.allIngredientsStr.slice(0);
+
+    tempStr = tempStr.concat(inputIngredient, ',');
+
+    this.setState(() => ({
+      allIngredientsStr: tempStr
+    }));
+
+    // this.setState(() => ({
+    //   inputIngredient: ''
+    // }));
+
+
+
+
+  }
+
+  updateMenu() {
+
+    if (this.state.allIngredients.length !== 0) {
+
+
+      this.props.updateMenus(this.state.allIngredientsStr);
+    }
+    else {
+      alert("Please enter at least one ingredient!")
+    }
+
+
   }
 
 
@@ -41,16 +83,28 @@ class IngredientPick extends Component {
         <p className="font-weight-bold">IngredientPick</p>
         <p>What I have in my fridge</p>
 
-        <form onSubmit={this.updateMenu}>
+        <ul>
+          {this.state.allIngredients.map((data, index) =>
+
+            <li key={index}>{data}</li>
+
+
+          )}
+        </ul>
+
+        <AutoComplete onAdd={this.addIngredient} />
+
+
+        {/* <form onSubmit={this.addIngredient}>
           <input
             type="text"
-            name="ingredient1"
-            value={this.state.ingredient1}
+            name="inputIngredient"
+            value={this.state.inputIngredient}
             className="inputArea form-control d-block"
-            placeholder="Ingredient1"
+            placeholder="Input Ingredient"
             onChange={this.handleChange}
-          />
-          <input
+          /> */}
+        {/* <input
             type="text"
             name="ingredient2"
             value={this.state.ingredient2}
@@ -65,13 +119,19 @@ class IngredientPick extends Component {
             className="inputArea form-control d-block"
             placeholder="Ingredient3"
             onChange={this.handleChange}
-          />
-          <button
+          /> */}
+        {/* <button
             type="submit"
+            className="btn btn-secondary"
+          >Add</button> */}
 
-          >Show me!</button>
+        {/* </form> */}
 
-        </form>
+        <button
+          // type="submit"
+          onClick={this.updateMenu}
+          className="mt-3 btn btn-primary"
+        >Show me!</button>
       </div>
     );
   }

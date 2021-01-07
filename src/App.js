@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 
@@ -6,6 +5,7 @@ import './App.css';
 import IngredientPick from './Component/IngredientPick';
 import TodayMenu from './Component/TodayMenu';
 import MenuDetail from './Component/MenuDetail';
+
 
 // import menus from './FoodData.json';
 
@@ -29,9 +29,11 @@ class App extends Component {
   }
 
 
+
+
   updateMenuDetail = (idList) => {
 
-   
+
     const menusList = this.state.tempMenu.slice(0);
 
 
@@ -57,7 +59,7 @@ class App extends Component {
 
 
             // menusList[i].menuDetail = [];
-            
+
             // menusList[i].menuDetail.push(res.data);
 
 
@@ -74,8 +76,6 @@ class App extends Component {
 
     }
 
-    // console.log(menusList);
-
     this.setState(() => ({
       TodayMenu: menusList
     }));
@@ -83,7 +83,10 @@ class App extends Component {
 
   }
 
-  updateMenus = () => {
+
+
+
+  updateMenus = (ingredientStr) => {
 
     axios({
       method: 'get',
@@ -91,6 +94,8 @@ class App extends Component {
       params: {
         apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
         ingredients: 'bacon, butter, cheese',
+        // ingredients: ingredientStr,
+
         number: 2,
         limitLicense: true,
         ranking: 3,
@@ -146,15 +151,16 @@ class App extends Component {
     console.log(this.state.TodayMenu);
     console.log(this.state.tempMenu);
 
-    
+
 
     return (
       <div className="App">
 
+
         <Route exact path='/' render={() => (
           <div className="row">
             <IngredientPick updateMenus={this.updateMenus} />
-            <TodayMenu menus={this.state.TodayMenu}/>
+            <TodayMenu menus={this.state.TodayMenu} />
           </div>
         )} />
 

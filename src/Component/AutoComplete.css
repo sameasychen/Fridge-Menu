@@ -1,0 +1,13 @@
+.suggestionsList{
+    padding-left: 0;
+}
+
+.suggestions{
+    text-decoration:none;
+    list-style-type: none;
+
+}
+
+.suggestions:hover{
+    background-color: blue;
+}

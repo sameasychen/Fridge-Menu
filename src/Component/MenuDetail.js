@@ -76,7 +76,7 @@ const MenuDetail = props => {
           >ID: {menuId}   Menu Name: {theMenu[0].title} </p>
           <img
             className="picImg rounded mx-auto d-block"
-            src={theMenu[0].image}
+            src={theMenu[0].menuDetail.image}
             alt={theMenu[0].image}
             height='150' />
           <p>Summary:</p>
@@ -90,8 +90,8 @@ const MenuDetail = props => {
           <p>Instructions: </p>
 
           <ul>
-            {theMenu[0].menuDetail.analyzedInstructions[0].steps.map(data =>
-              <li key={data.index}>
+            {theMenu[0].menuDetail.analyzedInstructions[0].steps.map((data, index) =>
+              <li key={index}>
                 
                 {/* <img
                   src={data.image}
