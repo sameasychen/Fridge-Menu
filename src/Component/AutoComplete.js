@@ -89,6 +89,10 @@ export class Autocomplete extends Component {
     onAddBtn =()=>{
 
         this.props.onAdd(this.state.userInput);
+        this.setState({
+
+            userInput: ''
+        });
 
     }
 
@@ -120,9 +124,9 @@ export class Autocomplete extends Component {
         const {
             onChange,
             onClick,
-            onKeyDown,
+            // onKeyDown,
             state: {
-                activeSuggestion,
+                // activeSuggestion,
                 filteredSuggestions,
                 showSuggestions,
                 userInput
@@ -133,13 +137,13 @@ export class Autocomplete extends Component {
         if (showSuggestions && userInput) {
             if (filteredSuggestions.length) {
                 suggestionsListComponent = (
-                    <ul class="suggestionsList">
+                    <ul className="suggestionsList">
                         {filteredSuggestions.map((suggestion, index) => {
-                            let className;
+                            // let className;
 
-                            if (index === activeSuggestion) {
-                                className = "";
-                            }
+                            // if (index === activeSuggestion) {
+                            //     className = "";
+                            // }
 
                             return (
                                 <li 

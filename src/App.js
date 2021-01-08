@@ -31,20 +31,19 @@ class App extends Component {
 
 
 
-  updateMenuDetail = (idList) => {
+  updateMenuDetail = (idListStr) => {
 
 
     const menusList = this.state.tempMenu.slice(0);
 
-
-    for (let i = 0; i < idList.length; i++) {
-      // console.log(idList[i]);
-
       axios({
         method: 'get',
-        url: `https://api.spoonacular.com//recipes/${idList[i]}/information`,
+        url: `https://api.spoonacular.com/recipes/informationBulk`,
         params: {
           apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
+          ids: idListStr,
+          // ids: '645821,633594',
+
           includeNutrition: false
         }
 
@@ -53,15 +52,18 @@ class App extends Component {
 
           (res) => {
 
-            // let menuDetail ='theDetail';
+            console.log(this.state.TodayMenu);
 
-            menusList[i].menuDetail = res.data;
+            let menusList = this.state.TodayMenu.slice(0);
+            console.log(menusList);
 
+            for(let i=0; i<menusList.length; i++){
 
-            // menusList[i].menuDetail = [];
+              menusList[i].menuDetail= res.data[i];
 
-            // menusList[i].menuDetail.push(res.data);
+            }
 
+            // menusList[i].menuDetail = res.data;
 
             // if (res.data.anlyzedInstructions.length !== 0) {
             //   menusList.push(res.data)
@@ -74,7 +76,6 @@ class App extends Component {
             // continue
           })
 
-    }
 
     this.setState(() => ({
       TodayMenu: menusList
@@ -82,7 +83,6 @@ class App extends Component {
 
 
   }
-
 
 
 
@@ -120,31 +120,23 @@ class App extends Component {
 
           );
 
-          this.updateMenuDetail(idList)
+          let idListStr = '';
+
+          for(let i=0; i<idList.length; i++){
+            idListStr=idListStr.concat(idList[i],',');
+
+          }
+
+          this.updateMenuDetail(idListStr);
 
         })
 
       .catch(err => {
         console.log(err);
 
-      }
-      )
+      })
 
-    // let loadDish = new Promise((resolve, reject) => (
-    //   setTimeout(() => (
-    //     resolve("success")
-    //   ), 3000)
-    // ))
-
-    // loadDish.then(
-
-    //   this.setState(() => ({e
-    //     TodayMenu: menus
-    //   }))
-
-    // )
-
-  }
+ }
 
   render() {
 

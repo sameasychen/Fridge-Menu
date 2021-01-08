@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const TodayMenu = props => {
 
-  console.log(typeof props.menus[0]);
+  // console.log(typeof props.menus[0]);
 
   return (
 
@@ -29,9 +29,9 @@ const TodayMenu = props => {
               alt={data.image}
               height='150' />
 
-            <p>Number of Missed Ingredients: {data.missedIngredientCount}</p>
+            {/* <p>Number of Missed Ingredients: {data.missedIngredientCount}</p> */}
 
-            <div>Missing:
+            <div>Missing Ingredients:
 
               <ul>
 

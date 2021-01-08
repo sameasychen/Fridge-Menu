@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import AutoComplete from './AutoComplete';
 
-const axios = require('axios').default;
-
-
 class IngredientPick extends Component {
 
   constructor(props) {
@@ -12,7 +9,7 @@ class IngredientPick extends Component {
 
     this.state = {
       // inputIngredient: "",
-      allIngredients: [],
+      allIngredients: ['yam'],
       allIngredientsStr: "",
 
       // ingredient2: "",
@@ -27,7 +24,7 @@ class IngredientPick extends Component {
 
   addIngredient = (inputIngredient) => {
 
-    let tempArray = this.state.allIngredients.slice(0);;
+    let tempArray = this.state.allIngredients.slice(0);
 
     tempArray.push(inputIngredient);
 
