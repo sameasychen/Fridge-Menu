@@ -5,6 +5,10 @@ import './App.css';
 import IngredientPick from './Component/IngredientPick';
 import TodayMenu from './Component/TodayMenu';
 import MenuDetail from './Component/MenuDetail';
+import Header from './Component/Header';
+import Footer from './Component/Footer';
+
+import dataFiller from './Component/dataFiller.json';
 
 
 // import menus from './FoodData.json';
@@ -19,7 +23,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      TodayMenu: [],
+      TodayMenu: dataFiller,
       tempMenu: [],
 
 
@@ -36,45 +40,45 @@ class App extends Component {
 
     const menusList = this.state.tempMenu.slice(0);
 
-      axios({
-        method: 'get',
-        url: `https://api.spoonacular.com/recipes/informationBulk`,
-        params: {
-          apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
-          ids: idListStr,
-          // ids: '645821,633594',
+    axios({
+      method: 'get',
+      url: `https://api.spoonacular.com/recipes/informationBulk`,
+      params: {
+        apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
+        ids: idListStr,
+        // ids: '645821,633594',
 
-          includeNutrition: false
-        }
+        includeNutrition: false
+      }
 
-      })
-        .then(
+    })
+      .then(
 
-          (res) => {
+        (res) => {
 
-            console.log(this.state.TodayMenu);
+          console.log(this.state.TodayMenu);
 
-            let menusList = this.state.TodayMenu.slice(0);
-            console.log(menusList);
+          let menusList = this.state.TodayMenu.slice(0);
+          console.log(menusList);
 
-            for(let i=0; i<menusList.length; i++){
+          for (let i = 0; i < menusList.length; i++) {
 
-              menusList[i].menuDetail= res.data[i];
+            menusList[i].menuDetail = res.data[i];
 
-            }
+          }
 
-            // menusList[i].menuDetail = res.data;
+          // menusList[i].menuDetail = res.data;
 
-            // if (res.data.anlyzedInstructions.length !== 0) {
-            //   menusList.push(res.data)
-            // }
+          // if (res.data.anlyzedInstructions.length !== 0) {
+          //   menusList.push(res.data)
+          // }
 
-            // if (res.data.anlyzedInstructions[0].steps) {
-            //   menusList.push(res.data)
-            // }
+          // if (res.data.anlyzedInstructions[0].steps) {
+          //   menusList.push(res.data)
+          // }
 
-            // continue
-          })
+          // continue
+        })
 
 
     this.setState(() => ({
@@ -122,8 +126,8 @@ class App extends Component {
 
           let idListStr = '';
 
-          for(let i=0; i<idList.length; i++){
-            idListStr=idListStr.concat(idList[i],',');
+          for (let i = 0; i < idList.length; i++) {
+            idListStr = idListStr.concat(idList[i], ',');
 
           }
 
@@ -136,7 +140,7 @@ class App extends Component {
 
       })
 
- }
+  }
 
   render() {
 
@@ -146,11 +150,12 @@ class App extends Component {
 
 
     return (
-      <div className="App">
+      <div className='contentwidth mx-auto'>
 
+        <Header />
 
         <Route exact path='/' render={() => (
-          <div className="row">
+          <div className="">
             <IngredientPick updateMenus={this.updateMenus} />
             <TodayMenu menus={this.state.TodayMenu} />
           </div>
@@ -158,8 +163,15 @@ class App extends Component {
 
 
         <Switch>
-          <Route path="/MenuDetail/:menuId" children={<MenuDetail menus={this.state.TodayMenu} />} />
+          <Route path="/MenuDetail/:menuId" children={
+
+              <MenuDetail menus={this.state.TodayMenu} />
+
+
+          } />
         </Switch>
+
+        <Footer />
 
       </div >
     );

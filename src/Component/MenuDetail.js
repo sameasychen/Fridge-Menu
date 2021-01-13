@@ -1,7 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import clock from '../Img/clock.png';
+import glutenfree from '../Img/gluten-free.png';
+import vegitarian from '../Img/vegetarian.png';
+import serve from '../Img/serve.png';
 
+import './MenuDetail.css';
 
 
 const MenuDetail = props => {
@@ -27,6 +32,10 @@ const MenuDetail = props => {
   let { menuId } = useParams();
   let numberId = parseInt(menuId);
 
+
+
+
+
   if (props.menus.length === 0) {
 
     return (
@@ -45,81 +54,307 @@ const MenuDetail = props => {
 
     const theMenu = props.menus.filter((data) => {
 
-      return data.id === numberId
+      return data.id === numberId;
+
+
 
     })
-    // console.log(theMenu)
+
+    // let ingreList =[];
+
+    let ingreList1 = theMenu[0].usedIngredients.map((data) => {
+
+      let tempName = data.original.split(',');
+
+      tempName = tempName[0].split('-');
+
+      let ingreDetail = {};
+
+      ingreDetail.name = tempName[0];
+
+      ingreDetail.image = data.image;
+
+      return ingreDetail
+    })
+
+    let ingreList2 = theMenu[0].missedIngredients.map((data) => {
+
+      let tempName = data.original.split(',');
+
+      tempName = tempName[0].split('-');
+
+      let ingreDetail = {};
+
+      ingreDetail.name = tempName[0];
+
+      ingreDetail.image = data.image;
+
+      return ingreDetail
+
+    })
+
+
+    let ingreList = ingreList1.concat(ingreList2);
+
+    // console.log(ingreList);
+
+
+    let getTags = (tagArray) => {
+      let tempTags = '';
+
+      if (tagArray) {
+
+        for (let i = 0; i < tagArray.length; i++) {
+          if (i > 2 || i === tagArray.length - 1) {
+            tempTags = tempTags.concat(tagArray[i])
+
+            break;
+          }
+
+
+          tempTags = tempTags.concat(tagArray[i], ', ')
+
+        }
+      }
+      // console.log(tempTags);
+
+      return tempTags
+
+    }
+
+    let getWine = (wineArray) => {
+
+      // console.log(wineArray);
+
+      let tempWine = '';
+
+      if (wineArray) {
+
+        for (let i = 0; i < wineArray.length; i++) {
+          if (i > 2 || i === wineArray.length - 1) {
+            tempWine = tempWine.concat(wineArray[i])
+
+            break;
+          }
+
+          tempWine = tempWine.concat(wineArray[i], ', ')
+
+        }
+      }
+
+      // console.log(tempWine);
+
+
+      return tempWine
+    }
+
 
     let booleanOutput = (theBoolean) => {
 
       return theBoolean ? 'Yes' : 'No'
 
-      // if(theBoolean){
-      //   return 'Yes'
-      // } else{
-
-      // }
     }
 
     return (
 
-      <div className="text-left">
+      <div className="mx-2">
 
         <Link to="/">
           Home Page
         </Link>
 
-        <div >
+        <h3
+          className="text-left font-weight-bold"
+        >   {theMenu[0].title} </h3>
 
-          <p
-            className="text-left font-weight-bold"
-          >ID: {menuId}   Menu Name: {theMenu[0].title} </p>
-          <img
-            className="picImg rounded mx-auto d-block"
-            src={theMenu[0].menuDetail.image}
-            alt={theMenu[0].image}
-            height='150' />
-          <p>Summary:</p>
+        <div className="row mx-1">
 
-          <div dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
+          <div className="col-md-8 col-sm-7 px-0 mb-2">
+            {/* ID: {menuId} */}
 
-          <p>readyInMinutes: {theMenu[0].menuDetail.readyInMinutes}</p>
-          <p>GlutenFree: {booleanOutput(theMenu[0].menuDetail.glutenFree)}</p>
-          <p>Vegetarian: {booleanOutput(theMenu[0].menuDetail.vegetarian)}</p>
+            <img
+              className="maxwidth rounded mx-auto d-block "
+              src={theMenu[0].menuDetail.image}
+              alt={theMenu[0].menuDetail.image}
+              height='150' />
 
-          <p>Instructions: </p>
+            <div dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
 
-          <ul>
+          </div>
+
+          <div className="col-md-4 col-sm-5 px-1">
+
+            <div className="row mx-1">
+
+
+              <div className="col-sm-12 col-4 row mx-0 px-1 py-2">
+                <div className='col-sm-5 col-12 px-auto'>
+
+                  <img
+                    className="imgControl center"
+                    src={clock}
+                    alt={clock}
+                  />
+
+                </div>
+                <div className="col-sm-7 col-12 px-0 align-self-center">
+                  Ready in {theMenu[0].menuDetail.readyInMinutes} mins
+                </div>
+              </div>
+
+
+              <div className="col-sm-12 col-4 row mx-0 px-1 py-2">
+                <div className='col-sm-5 col-12 px-auto'>
+
+                  <img
+                    className="imgControl center"
+                    src={glutenfree}
+                    alt={glutenfree}
+                  />
+
+                </div>
+                <div className="col-sm-7 col-12 px-0 align-self-center">
+                  GlutenFree:   {booleanOutput(theMenu[0].menuDetail.glutenFree)}
+                </div>
+              </div>
+
+
+              <div className="col-sm-12 col-4 row mx-0 px-1 py-2">
+                <div className='col-sm-5 col-12 px-auto'>
+
+                  <img
+                    className="imgControl center"
+                    src={vegitarian}
+                    alt={vegitarian}
+                  />
+
+                </div>
+                <div className="col-sm-7 col-12 px-0 align-self-center">
+
+                  Vegetarian:  {booleanOutput(theMenu[0].menuDetail.vegetarian)}
+                </div>
+              </div>
+
+            </div>
+
+            <div className="row mx-1">
+
+              <div className="col-sm-12 col-4 row mx-0 px-1 py-2">
+                <div className='col-sm-5 col-12 px-auto'>
+
+                  <img
+                    className="imgControl center"
+                    src={serve}
+                    alt={serve}
+                  />
+
+                </div>
+                <div className="col-sm-7 col-12 px-0 align-self-center">
+
+                  Servings: {theMenu[0].menuDetail.servings}
+                </div>
+              </div>
+
+
+              <div className="col-sm-12 col-4 px-1 py-2">
+
+                <h5 className="pl-3">Tags:
+                </h5>
+                <p className="capitalize pl-3">
+                  {getTags(theMenu[0].menuDetail.dishTypes)
+                  }
+
+                </p>
+              </div>
+
+
+              <div className="col-sm-12 col-4 px-1 py-2">
+
+                <h5 className="pl-3">Paired Wines:
+                  </h5>
+
+                <p className="capitalize pl-3">
+
+                  {getWine(theMenu[0].menuDetail.winePairing.pairedWines)
+                  }
+
+                </p>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <fieldset className='fieldsetTemp'>
+
+          <legend
+            className='mx-3'
+          >
+            <h5>
+              &nbsp;&nbsp;Ingredients:&nbsp;
+            </h5>
+          </legend>
+
+
+          <ul className="row mx-1 px-1">
+
+            {ingreList.map((data, index) =>
+              <li
+                className='ingreList col-sm-3 col-6 px-0'
+                key={index}>
+                <div className="d-block">
+
+                  <img
+                    className="mx-auto d-block"
+                    src={data.image}
+                    alt={data.image}
+                    width='70'
+                    height='70'
+                  />
+                </div>
+
+                <p
+                  className="text-center capitalize"
+                >{data.name}</p>
+
+              </li>
+
+            )}
+          </ul>
+
+
+        </fieldset>
+
+
+        <fieldset className='fieldsetTemp'>
+
+          <legend
+            className='mx-3'
+          >
+            <h5>
+              &nbsp;&nbsp;Instructions:&nbsp;
+              </h5>
+          </legend>
+
+
+          <ul className="row mx-1 px-1">
+
             {theMenu[0].menuDetail.analyzedInstructions[0].steps.map((data, index) =>
-              <li key={index}>
-                
-                {/* <img
-                  src={data.image}
-                  alt={data.image}
-                  height='150' /> */}
-                <p>Step {data.number}: {data.step}</p>
-
+              <li key={index} className="instructionList">
+                <p className="h5">Step {data.number}: </p>
+                <p>{data.step}</p>
 
               </li>
 
             )}
 
-
           </ul>
+        </fieldset>
 
-
-
-
-
-          {/* <p
-          >Ingredients: {theMenu[0].ingredients}</p>
-
-          <p>CookInstructions: {theMenu[0].cookInstructions[0]}</p>
-          <p>Step 1:{theMenu[0].cookInstructions[0]}</p>
-          <p>Step 2:{theMenu[0].cookInstructions[1]}</p>
-          <p>Step 3:{theMenu[0].cookInstructions[2]}</p> */}
-
-        </div>
       </div>
     );
 

@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import AutoComplete from './AutoComplete';
+import FridgePic from '../Img/Fridge2.jpg';
+import LemonList from '../Img/LemonList.jpg';
+
+import './IngredientPick.css';
+
 
 class IngredientPick extends Component {
 
@@ -76,59 +81,68 @@ class IngredientPick extends Component {
 
     return (
 
-      <div className="col">
-        <p className="font-weight-bold">IngredientPick</p>
-        <p>What I have in my fridge</p>
+      <div className="row mx-2">
 
-        <ul>
-          {this.state.allIngredients.map((data, index) =>
+        <div className="col-md-4 col-sm-6 ingreLeft">
 
-            <li key={index}>{data}</li>
+          <p>Let's see what we have in our fridge:</p>
+          <AutoComplete onAdd={this.addIngredient} />
+          <button
+
+            onClick={this.updateMenu}
+            className="mt-3 btn btn-primary"
+          >Show me!</button>
+
+        </div>
+
+        <div className="col-md-4 col-sm-6">
+          <img
+            className="picImg rounded mx-auto d-block"
+            src={FridgePic}
+            alt={FridgePic}
+            height='250' />
+
+        </div>
+
+        <div className="col-md-4 col-sm-12 ingreRight">
+
+          <fieldset className='fieldsetTemp'>
+
+            <legend
+              className='mx-3'
+            >
+              <h5>
+                &nbsp;&nbsp;Ingredients:&nbsp;
+              </h5>
+            </legend>
 
 
-          )}
-        </ul>
-
-        <AutoComplete onAdd={this.addIngredient} />
+            <ul className="">
 
 
-        {/* <form onSubmit={this.addIngredient}>
-          <input
-            type="text"
-            name="inputIngredient"
-            value={this.state.inputIngredient}
-            className="inputArea form-control d-block"
-            placeholder="Input Ingredient"
-            onChange={this.handleChange}
-          /> */}
-        {/* <input
-            type="text"
-            name="ingredient2"
-            value={this.state.ingredient2}
-            className="inputArea form-control d-block"
-            placeholder="Ingredient2"
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="ingredient3"
-            value={this.state.ingredient3}
-            className="inputArea form-control d-block"
-            placeholder="Ingredient3"
-            onChange={this.handleChange}
-          /> */}
-        {/* <button
-            type="submit"
-            className="btn btn-secondary"
-          >Add</button> */}
+              {this.state.allIngredients.map((data, index) =>
 
-        {/* </form> */}
+                <li key={index} className="ingreList py-2">
 
-        <button
-          // type="submit"
-          onClick={this.updateMenu}
-          className="mt-3 btn btn-primary"
-        >Show me!</button>
+                  <img
+                    className="rounded-circle mx-auto "
+                    src={LemonList}
+                    alt={LemonList}
+                    height='35' />
+                  <span className='pl-2 capitalize'>
+                    {data}
+                  </span>
+                </li>
+
+              )}
+            </ul>
+
+
+          </fieldset>
+
+        </div>
+
+
       </div>
     );
   }

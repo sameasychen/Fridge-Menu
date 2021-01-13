@@ -1,0 +1,36 @@
+.ingreList{
+    list-style-type: none;
+    /* text-decoration:none; */
+    width: 110px;
+}
+
+.fieldsetTemp {
+    /* display: block; */
+    /* border-style: groove;
+    border-width: 2px; */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+  }
+
+  legend {
+    width: 150px !important;
+    min-width: 20% !important;
+  }
+
+.imgControl{
+    /* width: 100%; */
+    height: 100%;
+    max-width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maxwidth{
+    width: 100%;
+    height: auto;
+  }
+
+.instructionList{
+    list-style-type: none;
+
+}

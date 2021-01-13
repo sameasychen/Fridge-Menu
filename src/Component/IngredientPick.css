@@ -1,0 +1,17 @@
+.fieldsetTemp {
+    /* display: block; */
+    /* border-style: groove;
+    border-width: 2px; */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+  }
+
+  legend {
+    width: 120px !important;
+    min-width: 18% !important;
+  }
+
+  .ingreList{
+    list-style-type: none;
+
+}
