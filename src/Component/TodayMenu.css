@@ -1,5 +1,23 @@
 .ingreList{
     list-style-type: none;
     /* text-decoration:none; */
-    width: 110px;
+    width: 50px;
+}
+
+.menuLink{
+  text-decoration:none;
+  color: black;
+
+}
+
+.menuLink:hover{
+    text-decoration:none;
+    color: rgb(76, 11, 138);
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+.missingIngre{
+    border-bottom-style: dotted;
+    border-color: #f7ba21;
 }

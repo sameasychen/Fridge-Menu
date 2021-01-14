@@ -159,7 +159,7 @@ export class Autocomplete extends Component {
                 );
             } else {
                 suggestionsListComponent = (
-                    <div class="no-suggestions">
+                    <div className="no-suggestions">
                         <em>No suggestions</em>
                     </div>
                 );
@@ -179,7 +179,7 @@ export class Autocomplete extends Component {
                     />
                     <div className="input-group-append">
                         <button 
-                        className="btn btn-primary" 
+                        className="btn btn-success" 
                         type="button"
                         onClick={this.onAddBtn}
                         >Add</button>

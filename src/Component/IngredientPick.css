@@ -1,17 +1,34 @@
-.fieldsetTemp {
+/* .fieldsetTemp { */
     /* display: block; */
     /* border-style: groove;
     border-width: 2px; */
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd;
     border-radius: 12px;
-  }
+  } */
 
   legend {
     width: 120px !important;
     min-width: 18% !important;
   }
 
-  .ingreList{
+  .ingrepickList{
     list-style-type: none;
 
+}
+
+.buttonControl{
+
+  background-color:#f7ba21;
+  color: #f7ba21;
+}
+
+.ingreRight{
+  background-color: #104b26;
+  min-height: 150px;
+
+}
+
+.imgboardControl{
+  width: 100%;
+  
 }
