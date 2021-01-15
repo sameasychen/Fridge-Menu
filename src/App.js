@@ -152,7 +152,7 @@ class App extends Component {
     return (
       <div className='contentwidth mx-auto'>
 
-        <Header />
+        {/* <Header /> */}
 
         <Route exact path='/' render={() => (
           <div className="">

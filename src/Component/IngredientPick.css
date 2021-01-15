@@ -6,6 +6,11 @@
     border-radius: 12px;
   } */
 
+  .banner{
+    max-width: 100%; 
+    height: auto;
+  }
+
   legend {
     width: 120px !important;
     min-width: 18% !important;
@@ -20,6 +25,13 @@
 
   background-color:#f7ba21;
   color: #f7ba21;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 18px 0 rgba(0, 0, 0, 0.19);
+}
+
+.boardText{
+  font-family: 'Caveat', cursive;
+  font-size: 35px;
+
 }
 
 .ingreRight{
@@ -30,5 +42,6 @@
 
 .imgboardControl{
   width: 100%;
-  
+  background-image: url("../Img/boardEdge3.png");
+  height: 20px;
 }

@@ -159,12 +159,14 @@ const MenuDetail = props => {
 
       <div className="mx-2">
 
-        <Link to="/">
-          Home Page
-        </Link>
+        <Link to="/"
+        className='largeTextFont backBtn border bg-success text-white p-2'
+        >
+          Back to results
+        </Link> 
 
         <h3
-          className="text-left font-weight-bold"
+          className="text-left font-weight-bold mt-3 "
         >   {theMenu[0].title} </h3>
 
         <div className="row mx-1">
@@ -178,7 +180,9 @@ const MenuDetail = props => {
               alt={theMenu[0].menuDetail.image}
               height='150' />
 
-            <div dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
+            <div
+            className='smallTextFont pt-3'
+            dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
 
           </div>
 
@@ -197,7 +201,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
                   Ready in {theMenu[0].menuDetail.readyInMinutes} mins
                 </div>
               </div>
@@ -213,7 +217,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
                   GlutenFree:   {booleanOutput(theMenu[0].menuDetail.glutenFree)}
                 </div>
               </div>
@@ -229,7 +233,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
 
                   Vegetarian:  {booleanOutput(theMenu[0].menuDetail.vegetarian)}
                 </div>
@@ -249,7 +253,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
 
                   Servings: {theMenu[0].menuDetail.servings}
                 </div>
@@ -258,9 +262,9 @@ const MenuDetail = props => {
 
               <div className="col-sm-12 col-4 px-1 py-2">
 
-                <h5 className="pl-3">Tags:
+                <h5 className="pl-3 largeTextFont">Tags:
                 </h5>
-                <p className="capitalize pl-3">
+                <p className="capitalize pl-3 smallTextFont">
                   {getTags(theMenu[0].menuDetail.dishTypes)
                   }
 
@@ -270,10 +274,10 @@ const MenuDetail = props => {
 
               <div className="col-sm-12 col-4 px-1 py-2">
 
-                <h5 className="pl-3">Paired Wines:
+                <h5 className="pl-3 largeTextFont">Paired Wines:
                   </h5>
 
-                <p className="capitalize pl-3">
+                <p className="capitalize pl-3 smallTextFont">
 
                   {getWine(theMenu[0].menuDetail.winePairing.pairedWines)
                   }
@@ -294,7 +298,7 @@ const MenuDetail = props => {
           <legend
             className='mx-3'
           >
-            <h5>
+            <h5 className='largeTextFont'>
               &nbsp;&nbsp;Ingredients:&nbsp;
             </h5>
           </legend>
@@ -318,7 +322,7 @@ const MenuDetail = props => {
                 </div>
 
                 <p
-                  className="text-center capitalize"
+                  className="text-center capitalize smallTextFont"
                 >{data.name}</p>
 
               </li>
@@ -330,12 +334,13 @@ const MenuDetail = props => {
         </fieldset>
 
 
-        <fieldset className='fieldsetTemp'>
+        <fieldset className='fieldsetTemp mt-3'>
 
           <legend
             className='mx-3'
           >
-            <h5>
+            <h5 
+            className='largeTextFont'>
               &nbsp;&nbsp;Instructions:&nbsp;
               </h5>
           </legend>
@@ -344,9 +349,10 @@ const MenuDetail = props => {
           <ul className="row mx-1 px-1">
 
             {theMenu[0].menuDetail.analyzedInstructions[0].steps.map((data, index) =>
-              <li key={index} className="instructionList">
-                <p className="h5">Step {data.number}: </p>
-                <p>{data.step}</p>
+              <li key={index} className="instructionList col-12">
+                <p className="h5 largeTextFont">Step {data.number}: </p>
+                <p className='smallTextFont'
+                >{data.step}</p>
 
               </li>
 

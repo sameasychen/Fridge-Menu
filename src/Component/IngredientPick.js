@@ -3,7 +3,7 @@ import AutoComplete from './AutoComplete';
 import FridgePic from '../Img/insideFridge7.jpg';
 import checked from '../Img/checked.png';
 import groceryList from '../Img/groceryList.png';
-import boardEdge1 from '../Img/boardEdge1.png';
+import listDot from '../Img/listDot.png';
 
 
 
@@ -87,30 +87,34 @@ class IngredientPick extends Component {
 
       <div className="row mx-2">
 
-        <div className="mx-auto">
+        <div className="mx-auto mb-3">
           <img
-            className="rounded d-block"
+            className="img-fluid banner rounded d-block"
             src={FridgePic}
             alt={FridgePic}
             width='960' />
 
         </div>
 
-        <div className="col-md-6 col-sm-12 ingreLeft">
+        <div className="col-md-6 col-sm-12 ingreLeft px-3 py-3">
 
-          <p>Let's see what we have in our fridge:</p>
+          <p className='largeTextFont'>
+            Tell me what you have in your fridge:</p>
+          <p className='smallTextFont'>
+            (Try to add more if you can.)</p>
+
           <AutoComplete onAdd={this.addIngredient} />
           <button
 
             onClick={this.updateMenu}
-            className="buttonControl mt-3 btn btn-warning btn-block"
-          >Show me!</button>
+            className="buttonControl mt-3 btn btn-warning btn-block largeTextFont font-weight-bold"
+          >See what you can cook out of these!</button>
 
         </div>
 
 
 
-        <div className="col-md-6 col-sm-12 px-0">
+        <div className="col-md-6 col-sm-12 px-3 py-3">
 
           {/* <fieldset className='fieldsetTemp'>
 
@@ -122,13 +126,16 @@ class IngredientPick extends Component {
               </h5>
             </legend> */}
 
+          <div
+            className="imgboardControl" >
+          </div>
 
-          <img
+          {/* <img
             className="imgboardControl"
             src={boardEdge1}
             alt={boardEdge1}
           // height='20'
-          />
+          /> */}
 
           <div className='ingreRight'>
 
@@ -136,20 +143,23 @@ class IngredientPick extends Component {
               className="mx-auto d-block"
               src={groceryList}
               alt={groceryList}
-              height='50' />
+              height='55' />
 
-            <ul className="ingrepickList">
+            <ul className="ingrepickList mb-0 pb-3 row">
 
               {this.state.allIngredients.map((data, index) =>
 
-                <li key={index} className=" py-2">
+                <li key={index} className="col-6 py-2">
 
                   <img
-                    className="rounded-circle mx-auto"
-                    src={checked}
-                    alt={checked}
-                    height='30' />
-                  <span className='pl-2 capitalize text-white'>
+                    className="rounded-circle mx-auto align-self-center"
+                    src={listDot}
+                    alt={listDot}
+                    height='15' />
+
+                  <span 
+                  // style="font-family: 'Font Name', serif;"
+                  className='boardText pl-2 capitalize text-white'>
                     {data}
                   </span>
                 </li>
@@ -158,15 +168,21 @@ class IngredientPick extends Component {
             </ul>
 
           </div>
-          <div>
+
+          <div
+            className="imgboardControl" >
+          </div>
+
+
+          {/* <div>
             <img
               className="imgboardControl"
               src={boardEdge1}
               alt={boardEdge1}
-              height='20'
+            // height='20'
             />
 
-          </div>
+          </div> */}
           {/* </fieldset> */}
 
         </div>

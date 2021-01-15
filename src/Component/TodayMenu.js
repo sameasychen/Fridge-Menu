@@ -12,14 +12,14 @@ const TodayMenu = props => {
 
   return (
 
-    <div className="mx-2">
-      <p className="font-weight-bold">TodayMenu</p>
+    <div className="mx-2 mt-3">
+
       <ul className="row pl-0 mx-0">
 
         {props.menus.map(data =>
 
 
-          <li key={data.id} className="row col-md-12 mx-0 px-0 mb-2">
+          <li key={data.id} className="row col-md-12 mx-0 px-0 my-3">
 
             <div className="col-sm-5 col-12 border px-0">
               {/* <p>FoodID: {data.id}</p> */}
@@ -36,7 +36,7 @@ const TodayMenu = props => {
                       height='50' />
                   </div>
 
-                  <div className='col-10 px-0 text-center align-self-center'>
+                  <div className='col-10 px-0 text-center align-self-center smallTextFont2'>
 
                       {data.title}
                   </div>
@@ -56,7 +56,7 @@ const TodayMenu = props => {
             <div className="col-sm-7 col-12">
 
               <p
-              className='missingIngre my-2'
+              className='missingIngre my-2 largeTextFont'
               >Plus {data.missedIngredientCount} Additional Ingredients:</p>
 
               <ul className="row pl-0 mx-0 mt-4">
@@ -76,7 +76,7 @@ const TodayMenu = props => {
                       />
                     </div>
                     <div
-                      className="text-center capitalize"
+                      className="text-center capitalize smallTextFont"
                     >{data.name}</div>
 
 
