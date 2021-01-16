@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import AutoComplete from './AutoComplete';
 import FridgePic from '../Img/insideFridge7.jpg';
-import checked from '../Img/checked.png';
+import Logo from '../Img/Logo.jpg';
 import groceryList from '../Img/groceryList.png';
 import listDot from '../Img/listDot.png';
-
 
 
 import './IngredientPick.css';
@@ -87,12 +86,23 @@ class IngredientPick extends Component {
 
       <div className="row mx-2">
 
-        <div className="mx-auto mb-3">
+        <div className="mx-auto mb-3 logoControl">
+
+
           <img
             className="img-fluid banner rounded d-block"
             src={FridgePic}
             alt={FridgePic}
             width='960' />
+          {/* <div className="mx-auto logoControl"> */}
+
+            <img
+              className="img-fluid logo d-block"
+              src={Logo}
+              alt={Logo}
+            // width='220'
+            />
+          {/* </div> */}
 
         </div>
 
@@ -157,9 +167,9 @@ class IngredientPick extends Component {
                     alt={listDot}
                     height='15' />
 
-                  <span 
-                  // style="font-family: 'Font Name', serif;"
-                  className='boardText pl-2 capitalize text-white'>
+                  <span
+                    // style="font-family: 'Font Name', serif;"
+                    className='boardText pl-2 capitalize text-white'>
                     {data}
                   </span>
                 </li>
