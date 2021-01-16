@@ -23,16 +23,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      TodayMenu: dataFiller,
+      TodayMenu: [],
       tempMenu: [],
-
 
     }
     // this.updateMenuDetail = this.updateMenuDetail.bind(this)
 
   }
-
-
 
 
   updateMenuDetail = (idListStr) => {
@@ -97,8 +94,8 @@ class App extends Component {
       url: 'https://api.spoonacular.com/recipes/findByIngredients',
       params: {
         apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
-        ingredients: 'bacon, butter, cheese',
-        // ingredients: ingredientStr,
+        // ingredients: 'bacon, butter, cheese',
+        ingredients: ingredientStr,
 
         number: 2,
         limitLicense: true,
@@ -142,21 +139,30 @@ class App extends Component {
 
   }
 
+  reset = () => {
+
+    this.setState(() => ({
+      TodayMenu: [],
+    }));
+
+  }
+
   render() {
 
-    console.log(this.state.TodayMenu);
-    console.log(this.state.tempMenu);
-
+    // console.log(this.state.TodayMenu);
+    // console.log(this.state.tempMenu);
 
 
     return (
-      <div className='contentwidth mx-auto'>
+      <div 
+      className='App contentwidth mx-auto'
+      >
 
         {/* <Header /> */}
 
         <Route exact path='/' render={() => (
           <div className="">
-            <IngredientPick updateMenus={this.updateMenus} />
+            <IngredientPick updateMenus={this.updateMenus} reset={this.reset} />
             <TodayMenu menus={this.state.TodayMenu} />
           </div>
         )} />
@@ -165,7 +171,7 @@ class App extends Component {
         <Switch>
           <Route path="/MenuDetail/:menuId" children={
 
-              <MenuDetail menus={this.state.TodayMenu} />
+            <MenuDetail menus={this.state.TodayMenu} />
 
 
           } />

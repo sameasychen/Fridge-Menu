@@ -17,7 +17,7 @@ class IngredientPick extends Component {
 
     this.state = {
       // inputIngredient: "",
-      allIngredients: ['yam'],
+      allIngredients: [],
       allIngredientsStr: "",
 
       // ingredient2: "",
@@ -27,6 +27,8 @@ class IngredientPick extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.updateMenu = this.updateMenu.bind(this)
+    this.resetAll = this.resetAll.bind(this)
+
 
   }
 
@@ -73,6 +75,21 @@ class IngredientPick extends Component {
   }
 
 
+  resetAll() {
+
+    console.log("Reset");
+
+    this.props.reset();
+
+    this.setState(() => ({
+      allIngredients: []
+    }));
+
+  }
+
+
+
+
   handleChange(e) {
     const { name, value } = e.target
 
@@ -96,12 +113,12 @@ class IngredientPick extends Component {
             width='960' />
           {/* <div className="mx-auto logoControl"> */}
 
-            <img
-              className="img-fluid logo d-block"
-              src={Logo}
-              alt={Logo}
-            // width='220'
-            />
+          <img
+            className="img-fluid logo d-block"
+            src={Logo}
+            alt={Logo}
+          // width='220'
+          />
           {/* </div> */}
 
         </div>
@@ -110,8 +127,17 @@ class IngredientPick extends Component {
 
           <p className='largeTextFont'>
             Tell me what you have in your fridge:</p>
-          <p className='smallTextFont'>
-            (Try to add more if you can.)</p>
+
+          <div className='d-flex my-1'>
+
+            <p className='smallTextFont p-1 mb-0'>
+              (Try to add more if you can.)</p>
+            <button
+
+              onClick={this.resetAll}
+              className="resetButtonControl btn btn-secondary largeTextFont  ml-auto"
+            >Reset</button>
+          </div>
 
           <AutoComplete onAdd={this.addIngredient} />
           <button
