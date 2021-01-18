@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './AutoComplete.css';
+import APIKEY from './env';
 
 
 const axios = require('axios').default;
@@ -35,7 +36,7 @@ export class Autocomplete extends Component {
             method: 'get',
             url: 'https://api.spoonacular.com/food/ingredients/autocomplete',
             params: {
-                apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
+                apiKey: APIKEY,
                 query: userInput,
                 // ingredients: ingredientStr,
 

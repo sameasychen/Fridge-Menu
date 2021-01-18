@@ -42,7 +42,7 @@ class App extends Component {
       method: 'get',
       url: `https://api.spoonacular.com/recipes/informationBulk`,
       params: {
-        apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
+        apiKey: APIKEY,
         ids: idListStr,
         // ids: '645821,633594',
 
@@ -99,7 +99,7 @@ class App extends Component {
       method: 'get',
       url: 'https://api.spoonacular.com/recipes/findByIngredients',
       params: {
-        apiKey: 'b2abb3f6ede848d782b9ebdff044e335',
+        apiKey: APIKEY,
         // ingredients: 'bacon, butter, cheese',
         ingredients: ingredientStr,
 
