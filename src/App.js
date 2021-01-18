@@ -5,7 +5,7 @@ import './App.css';
 import IngredientPick from './Component/IngredientPick';
 import TodayMenu from './Component/TodayMenu';
 import MenuDetail from './Component/MenuDetail';
-import Header from './Component/Header';
+// import Header from './Component/Header';
 import Footer from './Component/Footer';
 
 import dataFiller from './Component/dataFiller.json';
@@ -35,7 +35,9 @@ class App extends Component {
   updateMenuDetail = (idListStr) => {
 
 
-    const menusList = this.state.tempMenu.slice(0);
+    let menusList = this.state.tempMenu.slice(0);
+
+    let filterMenuList =[];
 
     axios({
       method: 'get',
@@ -53,9 +55,9 @@ class App extends Component {
 
         (res) => {
 
-          console.log(this.state.TodayMenu);
 
-          let menusList = this.state.TodayMenu.slice(0);
+          // let menusList = this.state.TodayMenu.slice(0);
+
           console.log(menusList);
 
           for (let i = 0; i < menusList.length; i++) {
@@ -64,23 +66,33 @@ class App extends Component {
 
           }
 
-          // menusList[i].menuDetail = res.data;
+          menusList = menusList.filter(
+            data => 
+            data.menuDetail.analyzedInstructions.length !== 0
 
-          // if (res.data.anlyzedInstructions.length !== 0) {
-          //   menusList.push(res.data)
-          // }
+          )
 
-          // if (res.data.anlyzedInstructions[0].steps) {
-          //   menusList.push(res.data)
-          // }
+          menusList = menusList.filter(
+            data => 
+            data.missedIngredients.length < 7
 
-          // continue
+          )
+
+          console.log(filterMenuList);
+          // filterMenuList
+
+          this.setState(() => ({
+            TodayMenu: menusList
+          }));
+
         })
 
 
-    this.setState(() => ({
-      TodayMenu: menusList
-    }));
+    // this.setState(() => ({
+    //   TodayMenu: filterMenuList
+    // }));
+
+    console.log(this.state.TodayMenu);
 
 
   }
@@ -97,7 +109,7 @@ class App extends Component {
         // ingredients: 'bacon, butter, cheese',
         ingredients: ingredientStr,
 
-        number: 2,
+        number: 4,
         limitLicense: true,
         ranking: 3,
         ignorePantry: true
@@ -107,10 +119,6 @@ class App extends Component {
       .then(
 
         (res) => {
-
-          // let parseText = JSON.parse(res)
-
-          // console.log(parseText)
 
           this.setState(() => ({
             tempMenu: res.data

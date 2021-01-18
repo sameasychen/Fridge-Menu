@@ -137,7 +137,7 @@ export class Autocomplete extends Component {
         if (showSuggestions && userInput) {
             if (filteredSuggestions.length) {
                 suggestionsListComponent = (
-                    <ul className="suggestionsList">
+                    <ul className="suggestionsList rounded border">
                         {filteredSuggestions.map((suggestion, index) => {
                             // let className;
 
@@ -149,7 +149,7 @@ export class Autocomplete extends Component {
                                 <li 
                                 key={suggestion} 
                                 onClick={onClick}
-                                className="suggestions border border-primary rounded"
+                                className="suggestions"
                                 >
                                     {suggestion}
                                 </li>

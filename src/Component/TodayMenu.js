@@ -12,7 +12,7 @@ const TodayMenu = props => {
 
   return (
 
-    <div className="mx-2 mt-3">
+    <div className="mx-2 mt-3 mb-3 pb-3">
 
       <ul className="row pl-0 mx-0">
 

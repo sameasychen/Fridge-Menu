@@ -135,7 +135,7 @@ class IngredientPick extends Component {
             <button
 
               onClick={this.resetAll}
-              className="resetButtonControl btn btn-secondary largeTextFont  ml-auto"
+              className="resetButtonControl btn btn-secondary  ml-auto"
             >Reset</button>
           </div>
 

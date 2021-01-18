@@ -157,13 +157,13 @@ const MenuDetail = props => {
 
     return (
 
-      <div className="mx-2">
+      <div className="mx-2 pb-5">
 
         <Link to="/"
-        className='largeTextFont backBtn border bg-success text-white p-2'
+          className='largeTextFont backBtn border bg-success text-white p-2'
         >
           Back to results
-        </Link> 
+        </Link>
 
         <h3
           className="text-left font-weight-bold mt-3 "
@@ -178,11 +178,11 @@ const MenuDetail = props => {
               className="maxwidth rounded mx-auto d-block "
               src={theMenu[0].menuDetail.image}
               alt={theMenu[0].menuDetail.image}
-              height='150' />
+              height='180' />
 
             <div
-            className='smallTextFont pt-3'
-            dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
+              className='smallTextFont pt-3'
+              dangerouslySetInnerHTML={{ __html: shortenSummary(theMenu[0].menuDetail.summary) }} />
 
           </div>
 
@@ -201,7 +201,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont font-weight-bold">
                   Ready in {theMenu[0].menuDetail.readyInMinutes} mins
                 </div>
               </div>
@@ -217,7 +217,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont font-weight-bold">
                   GlutenFree:   {booleanOutput(theMenu[0].menuDetail.glutenFree)}
                 </div>
               </div>
@@ -233,7 +233,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont font-weight-bold">
 
                   Vegetarian:  {booleanOutput(theMenu[0].menuDetail.vegetarian)}
                 </div>
@@ -253,7 +253,7 @@ const MenuDetail = props => {
                   />
 
                 </div>
-                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont">
+                <div className="col-sm-7 col-12 px-0 align-self-center smallTextFont font-weight-bold">
 
                   Servings: {theMenu[0].menuDetail.servings}
                 </div>
@@ -271,8 +271,10 @@ const MenuDetail = props => {
                 </p>
               </div>
 
-
-              <div className="col-sm-12 col-4 px-1 py-2">
+              {
+                theMenu[0].menuDetail.winePairing.pairedWines=== 0 &&
+                 
+                    <div className="col-sm-12 col-4 px-1 py-2">
 
                 <h5 className="pl-3 largeTextFont">Paired Wines:
                   </h5>
@@ -284,7 +286,8 @@ const MenuDetail = props => {
 
                 </p>
               </div>
-
+               
+              }
 
             </div>
 
@@ -339,8 +342,8 @@ const MenuDetail = props => {
           <legend
             className='mx-3'
           >
-            <h5 
-            className='largeTextFont'>
+            <h5
+              className='largeTextFont'>
               &nbsp;&nbsp;Instructions:&nbsp;
               </h5>
           </legend>
