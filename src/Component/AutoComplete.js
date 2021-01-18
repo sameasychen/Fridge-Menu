@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import './AutoComplete.css';
-import APIKEY from './env';
+import APIKEY from '../env';
 
 
 const axios = require('axios').default;
