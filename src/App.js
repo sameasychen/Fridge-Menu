@@ -7,6 +7,7 @@ import TodayMenu from './Component/TodayMenu';
 import MenuDetail from './Component/MenuDetail';
 // import Header from './Component/Header';
 import Footer from './Component/Footer';
+import APIKEY from './env';
 
 import dataFiller from './Component/dataFiller.json';
 
@@ -36,8 +37,6 @@ class App extends Component {
 
 
     let menusList = this.state.tempMenu.slice(0);
-
-    let filterMenuList =[];
 
     axios({
       method: 'get',
@@ -78,9 +77,6 @@ class App extends Component {
 
           )
 
-          console.log(filterMenuList);
-          // filterMenuList
-
           this.setState(() => ({
             TodayMenu: menusList
           }));
@@ -89,14 +85,12 @@ class App extends Component {
 
 
     // this.setState(() => ({
-    //   TodayMenu: filterMenuList
+    //   TodayMenu: menusList
     // }));
 
     console.log(this.state.TodayMenu);
 
-
   }
-
 
 
   updateMenus = (ingredientStr) => {
@@ -159,6 +153,8 @@ class App extends Component {
 
     // console.log(this.state.TodayMenu);
     // console.log(this.state.tempMenu);
+    // const APIKEY =process.env.REACT_APP_Menu_API_KEY;
+    console.log(APIKEY)
 
 
     return (
